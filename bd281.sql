@@ -1,4 +1,4 @@
-SELECT * FROM envio
+-- SELECT * FROM envio
 
 
 -- Create the database
@@ -62,7 +62,7 @@ CREATE TABLE PRODUCTO (
 -- Table TIENE
 CREATE TABLE TIENE_PRODUCTO (
     ID INT AUTO_INCREMENT PRIMARY KEY,
-    Precio DECIMAL(10, 2) NOT NULL,---quitarlo
+    Precio DECIMAL(10, 2) NOT NULL,
     Stock INT NOT NULL,
     Disponibilidad BOOLEAN DEFAULT TRUE,
     ID_Artesano INT,
@@ -98,10 +98,11 @@ CREATE TABLE DETALLE_COMPRA (
     ID_PRODUCTO INT NOT NULL,
     ID_Artesano INT,
     Cantidad INT NOT NULL,
+    Precio DECIMAL(10, 2) NOT NULL,
     Subtotal DECIMAL(10, 2) GENERATED ALWAYS AS (Cantidad * Precio) STORED,
     FOREIGN KEY (ID_COMPRA) REFERENCES COMPRA(ID) ON DELETE CASCADE, -- Delete order details if order is deleted
-    FOREIGN KEY (ID_PRODUCTO) REFERENCES PRODUCTO(ID) ON DELETE RESTRICT -- Prevent deleting products if they have been ordered,
-    FOREIGN KEY (ID_Artesano) REFERENCES USUARIO(ID) ON DELETE SET NULL,  -- Set NULL if artesano is deleted
+    FOREIGN KEY (ID_PRODUCTO) REFERENCES PRODUCTO(ID) ON DELETE RESTRICT, -- Prevent deleting products if they have been ordered,
+    FOREIGN KEY (ID_Artesano) REFERENCES USUARIO(ID) ON DELETE SET NULL  -- Set NULL if artesano is deleted
 );
 
 -- Corrected Table ENVIO
@@ -161,5 +162,5 @@ CREATE TABLE INFORMACION (
     ID INT AUTO_INCREMENT PRIMARY KEY,
     VISION TEXT,
     MISION TEXT,
-    OBJETIVO TEXT,
+    OBJETIVO TEXT
 );
