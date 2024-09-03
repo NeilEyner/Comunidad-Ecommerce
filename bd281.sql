@@ -2,8 +2,8 @@
 
 
 -- Create the database
-CREATE DATABASE IF NOT EXISTS artesania_ecommerce;
-USE artesania_ecommerce;
+CREATE DATABASE IF NOT EXISTS comunidad_ecommerce;
+USE comunidad_ecommerce;
 
 -- Table COMUNIDAD
 CREATE TABLE COMUNIDAD (
