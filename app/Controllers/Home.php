@@ -6,26 +6,31 @@ class Home extends BaseController
 {
     public function index(): string
     {
-        return view('global/header').view('global/homeCarrusel').view('global/homeCategorias') .view('global/homeProducto'). view('global/footer');
+        $data=['titulo'=>'Artesanias'];
+        return view('global/header',$data).view('global/homeCarrusel').view('global/homeCategorias') .view('global/homeProducto'). view('global/footer');
     }
 
     public function nosotros(): string
     {
-        return view('global/header').view('global/nosotros').view('global/servicios') .view('global/marcas'). view('global/footer');
+        $data=['titulo'=>'Nosotros'];
+        return view('global/header',$data).view('global/nosotros').view('global/servicios') .view('global/marcas'). view('global/footer');
     }
 
     public function tienda(): string
     {
-        return view('global/header').view('global/tienda') .view('global/marcas'). view('global/footer');
+        $data=['titulo'=>'Tienda'];
+        return view('global/header',$data).view('global/tienda') .view('global/marcas'). view('global/footer');
     }
 
     public function contacto(): string
     {
-        return view('global/header').view('global/contacto') .view('global/footer');
+        $data=['titulo'=>'Contacto'];
+        return view('global/header',$data).view('global/contacto') .view('global/footer');
     }
 
     public function comunidades(): string
     {
-        return view('global/header').view('global/comunidades') .view('global/footer');
+        $data=['titulo'=>'Comunidades'];
+        return view('global/header',$data).view('global/comunidades') .view('global/footer');
     }
 }

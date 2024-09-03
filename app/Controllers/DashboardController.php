@@ -11,7 +11,8 @@ class DashboardController extends Controller
         // if (session()->get('ID_Rol') != 1) {
         //     return redirect()->to(base_url('login'));
         // }
-        return view('dashboard/artesano');
+        $data=['titulo'=>'Artesano'];
+        return view('dashboard/header',$data).view('dashboard/artesano');
     }
 
     public function cliente()
@@ -19,7 +20,8 @@ class DashboardController extends Controller
         // if (session()->get('ID_Rol') != 2) {
         //     return redirect()->to(base_url('login'));
         // }
-        return view('dashboard/cliente');
+        $data=['titulo'=>'Cliente'];
+        return view('dashboard/header',$data).view('dashboard/cliente');
     }
 
     public function delivery()
@@ -27,7 +29,8 @@ class DashboardController extends Controller
         // if (session()->get('ID_Rol') != 3) {
         //     return redirect()->to(base_url('login'));
         // }
-        return view('dashboard/delivery');
+        $data=['titulo'=>'Delivery'];
+        return view('dashboard/header',$data).view('dashboard/delivery');
     }
 
     public function admin()
@@ -35,6 +38,7 @@ class DashboardController extends Controller
         // if (session()->get('ID_Rol') != 4) {
         //     return redirect()->to(base_url('login'));
         // }
-        return view('dashboard/header');
+        $data=['titulo'=>'Admin'];
+        return view('dashboard/header',$data).view('dashboard/admin');
     }
 }
