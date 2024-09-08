@@ -10,30 +10,34 @@ class DashboardController extends Controller
 {
     public function artesano()
     {
-        if (session()->get('ID_Rol') != 1) {
-            return redirect()->to(base_url('login'));
-        }
-        return view('dashboard/artesano');
+        // if (session()->get('ID_Rol') != 1) {
+        //     return redirect()->to(base_url('login'));
+        // }
+        $data=['titulo'=>'Artesano'];
+        return view('dashboard/header',$data).view('dashboard/artesano');
     }
 
     public function cliente()
     {
-        if (session()->get('ID_Rol') != 2) {
-            return redirect()->to(base_url('login'));
-        }
-        return view('dashboard/cliente');
+        // if (session()->get('ID_Rol') != 2) {
+        //     return redirect()->to(base_url('login'));
+        // }
+        $data=['titulo'=>'Cliente'];
+        return view('dashboard/header',$data).view('dashboard/cliente');
     }
 
     public function delivery()
     {
-        if (session()->get('ID_Rol') != 3) {
-            return redirect()->to(base_url('login'));
-        }
-        return view('dashboard/delivery');
+        // if (session()->get('ID_Rol') != 3) {
+        //     return redirect()->to(base_url('login'));
+        // }
+        $data=['titulo'=>'Delivery'];
+        return view('dashboard/header',$data).view('dashboard/delivery');
     }
 
     public function admin()
     {
+<<<<<<< HEAD
         if (session()->get('ID_Rol') != 4) {
             return redirect()->to(base_url('login'));
         }
@@ -53,5 +57,12 @@ class DashboardController extends Controller
         $model = new ComunidadModel();
         $data['comunidades'] = $model->findAll(); // Obtén todas las comunidades
         return view('dashboard/admin_comunidad', $data);
+=======
+        // if (session()->get('ID_Rol') != 4) {
+        //     return redirect()->to(base_url('login'));
+        // }
+        $data=['titulo'=>'Admin'];
+        return view('dashboard/header',$data).view('dashboard/admin');
+>>>>>>> 08a335672d36af016a584860d7058d65f8d17e96
     }
 }
