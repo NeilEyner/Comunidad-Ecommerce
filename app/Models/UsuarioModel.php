@@ -6,7 +6,7 @@ use CodeIgniter\Model;
 
 class UsuarioModel extends Model
 {
-    protected $table = 'USUARIO';
+    protected $table = 'usuario';
     protected $primaryKey = 'ID';
     
     protected $allowedFields = [
@@ -16,9 +16,11 @@ class UsuarioModel extends Model
         'Contrasena',
         'ID_Rol',
         'Direccion',
-        'ID_Comunidad',
+        'Fecha_registro',
         'Estado',
-        'Ultima_conexion'
+        'Ultima_conexion',
+        'ID_Comunidad',
+        'Imagen_URL'
     ];
     
     protected $useTimestamps = true; // Si usas created_at y updated_at

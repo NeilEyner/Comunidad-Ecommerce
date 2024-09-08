@@ -3,6 +3,8 @@
 namespace App\Controllers;
 
 use CodeIgniter\Controller;
+use App\Models\UsuarioModel;
+use App\Models\ComunidadModel;
 
 class DashboardController extends Controller
 {
@@ -35,6 +37,21 @@ class DashboardController extends Controller
         if (session()->get('ID_Rol') != 4) {
             return redirect()->to(base_url('login'));
         }
-        return view('dashboard/admin');
+        $model = new UsuarioModel();
+        $data['usuarios'] = $model->findAll();
+
+        return view('dashboard/admin', $data);
+    }
+    public function admin_user()
+    {
+        $model = new UsuarioModel();
+        $data['usuarios'] = $model->findAll(); // Obtén todos los usuarios
+
+        return view('dashboard/admin_usuario', $data);
+    }
+    public function admin_comunidad(){
+        $model = new ComunidadModel();
+        $data['comunidades'] = $model->findAll(); // Obtén todas las comunidades
+        return view('dashboard/admin_comunidad', $data);
     }
 }

@@ -54,7 +54,7 @@ class AuthController extends BaseController
                     'ID_Rol' => $this->request->getPost('ID_Rol'),
                     'Direccion' => $this->request->getPost('Direccion'),
                     'ID_Comunidad' => $this->request->getPost('ID_Comunidad'),
-                    'Estado' => 'ACTIVO'
+                    'Estado' => 'INACTIVO'
                 ];
 
                 if ($this->usuarioModel->insert($data)) {

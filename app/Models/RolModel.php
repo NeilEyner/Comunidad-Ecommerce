@@ -6,7 +6,7 @@ use CodeIgniter\Model;
 
 class RolModel extends Model
 {
-    protected $table = 'ROL';
+    protected $table = 'rol';
     protected $primaryKey = 'ID';
     protected $allowedFields = ['Nombre', 'Descripcion'];
 }

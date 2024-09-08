@@ -6,7 +6,7 @@ use CodeIgniter\Model;
 
 class ComunidadModel extends Model
 {
-    protected $table = 'COMUNIDAD';
+    protected $table = 'comunidad';
     protected $primaryKey = 'ID';
     
     protected $allowedFields = [
