@@ -1,5 +1,3 @@
--- SELECT * FROM envio
-
 
 -- Create the database
 CREATE DATABASE IF NOT EXISTS comunidad_ecommerce;
@@ -61,7 +59,6 @@ CREATE TABLE PRODUCTO (
 
 -- Table TIENE
 CREATE TABLE TIENE_PRODUCTO (
-    ID INT AUTO_INCREMENT PRIMARY KEY,
     Precio DECIMAL(10, 2) NOT NULL,
     Stock INT NOT NULL,
     Disponibilidad BOOLEAN DEFAULT TRUE,
@@ -93,13 +90,10 @@ CREATE TABLE COMPRA (
 
 -- Table DETALLE_COMPRA
 CREATE TABLE DETALLE_COMPRA (
-    ID INT AUTO_INCREMENT PRIMARY KEY,
     ID_COMPRA INT NOT NULL,
     ID_PRODUCTO INT NOT NULL,
     ID_Artesano INT,
     Cantidad INT NOT NULL,
-    Precio DECIMAL(10, 2) NOT NULL,
-    Subtotal DECIMAL(10, 2) GENERATED ALWAYS AS (Cantidad * Precio) STORED,
     FOREIGN KEY (ID_COMPRA) REFERENCES COMPRA(ID) ON DELETE CASCADE, -- Delete order details if order is deleted
     FOREIGN KEY (ID_PRODUCTO) REFERENCES PRODUCTO(ID) ON DELETE RESTRICT, -- Prevent deleting products if they have been ordered,
     FOREIGN KEY (ID_Artesano) REFERENCES USUARIO(ID) ON DELETE SET NULL  -- Set NULL if artesano is deleted
@@ -138,7 +132,6 @@ CREATE TABLE PAGO (
 
 -- Table VALORACION
 CREATE TABLE VALORACION (
-    ID INT AUTO_INCREMENT PRIMARY KEY,
     ID_Usuario INT, -- Changed from NOT NULL to allow NULL
     ID_Producto INT NOT NULL,
     Puntuacion INT NOT NULL CHECK (Puntuacion BETWEEN 1 AND 5),
@@ -150,7 +143,6 @@ CREATE TABLE VALORACION (
 
 -- Table for managing multiple categories per product
 CREATE TABLE PRODUCTO_CATEGORIA (
-    ID INT AUTO_INCREMENT PRIMARY KEY,
     ID_Producto INT NOT NULL,
     ID_Categoria INT NOT NULL,
     FOREIGN KEY (ID_Producto) REFERENCES PRODUCTO(ID) ON DELETE CASCADE, -- Delete relation if product is deleted
